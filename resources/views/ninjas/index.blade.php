@@ -4,11 +4,15 @@
       
        @foreach($ninjas as $ninja)
         <li>
-            <x-card href="/ninjas/{{$ninja['id']}}">
-                <h3>{{$ninja['name']}}</h3>
+            <x-card href="{{route('ninjas.show',$ninja->id)}}">
+               <div>
+                <h3>{{$ninja->name}}</h3>
+                <p>{{$ninja->dojo->name}}</p>
+               </div>
 
             </x-card>
         </li> 
         @endforeach
     </ul>
+    {{$ninjas->links()}}
 </x-layout>
